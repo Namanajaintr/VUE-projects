@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="dataBinding">
+      <!-- To bind the value of an input element to a property of your component’s data, we use v-model="dataProperty" -->
+
+      <!-- <input placeholder="Enter email" v-bind:value="email" -->
+      <!-- OR -->
+      <h2>Binding to Text Input Elements</h2>
+
+      <input placeholder="Enter Email" v-model="emaildata" />
+
+      <button v-on:click="reset">Reset Email</button>
+
+      <h3>Your Email:{{emaildata}}</h3>
+
+      <br />
+
+      <h2>Binding to Checkboxes and Radio Buttons</h2>
+
+      <p>How are you feeling today?</p>
+      <label>
+        <input type="radio" value="great" v-model="howAreYouFeeling" />
+        great
+      </label>
+
+      <label>
+        <input type="radio" value="wonderful" v-model="howAreYouFeeling" />
+        wonderful
+      </label>
+
+      <label>
+        <input type="radio" value="fantastic" v-model="howAreYouFeeling" />
+        fantastic
+      </label>
+      <p>I am also feeling {{howAreYouFeeling}} today.</p>
+
+      <br />
+
+      <p>A list of names that rhyme: {{namesThatRhyme.join(', ')}}</p>
+      <label>
+        <input type="checkbox" value="Daniel" v-model="namesThatRhyme" />
+        Daniel
+      </label>
+
+      <label>
+        <input type="checkbox" value="Nathaniel" v-model="namesThatRhyme" />
+        Nathaniel
+      </label>
+
+      <label>
+        <input type="checkbox" value="Hubert" v-model="namesThatRhyme" />
+        Hubert
+      </label>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

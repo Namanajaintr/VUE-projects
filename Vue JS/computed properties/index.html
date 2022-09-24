@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="dataBinding">
+      <div>
+        <h2>Counter:{{counter}}</h2>
+        <h2>Double counter:{{doublecounter}}</h2>
+        <button @click="increment">Increment</button>
+        <button @click="decrement">Decrement</button>
+      </div>
+      <div>
+        <input type="text" placeholder="Enter name" v-model="name" />
+        <!-- <h3>Your Email:{{name()}}</h3> -->
+        <!-- for computed value property allows us to this make only this function executes and prevents other function executions  -->
+        <h3>Your name:{{fullname}}</h3>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

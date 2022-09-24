@@ -1,0 +1,160 @@
+======================================================================================================
+Assignment 1 
+======================================================================================================
+1.what is vue js
+
+Vue.js is an open-source front end JavaScript framework for building user interfaces and single-page applications.
+It was created by Evan You, and is maintained by him and the rest of the active core team members.
+Vue.js allows for extending HTML with HTML attributes called directives.
+The directives offer functionality to HTML applications, and come as either built-in or user defined directives.
+--------------------------------------------------------------------------------------------------------------------
+
+2.Why should we Choose vuejs
+
+ Simplicity.
+ Easy to Learn. (learning curve is less steep)
+ Virtual DOM Performance and Rendering.
+ Two-Way Binding.
+ Readability and Single-File Components.
+
+3. What is Single Page Applicaton?
+A single-page application is a web application or website that interacts with the user by 
+dynamically rewriting the current web page with new data from the web server without reloading the webpage
+
+In a SPA, a page refresh never occurs; 
+instead, all necessary HTML, JavaScript, and CSS code is either retrieved by the browser with a single page load.
+
+4.Event:-
+1. v-on:click
+2. v-on:submit
+3. v-on:scroll
+4. v-on:keyup
+5. v-on:change
+6. v-on:mouseover
+7. v-on:mouseout
+
+5.Directives are instruction for VueJS to do things in a certain way.
+v-bind: instead of value attribute we need to bind. (:)
+v-on:Attach an event listener to the element.(@)
+v-html:Read the data in html and Update the element's innerHTML.
+v-for:map or loop the array and objects
+v-text:Update the element's text content.
+v-model:Create a two-way binding on a form input element or a component.
+v-once:to preserve initial value and it will be only evaluated once even any changes made it will not update.
+
+6.Explain Two way data binding?
+The v-model directive makes two-way binding between a form input and app state very easy to implement.
+Component data:
+data() {
+  return {
+    statementIsTrue: true  
+  };
+}
+template :
+<p>You have decided this statement is {{statementIsTrue}}</p>
+<label>
+  <input type="checkbox" v-model="statementIsTrue"/>
+  Is this statement true?
+</label>
+
+
+======================================================================================================
+Assignment 2 
+======================================================================================================
+
+
+2.Explain computed properties.
+Computed properties enable us to create a property that can be used to modify, 
+manipulate, and display data within your components in a readable and efficient manner. 
+We can use computed properties to calculate and display values based on a value or set of values in the data model.
+-Computed property used to optimise the performance.
+-other functions will not be executed.
+
+3.Explain Watchers.
+There are cases where we need to perform "side effects(Asyncronous code)" in reaction to state changes - for example, mutating the DOM,
+or changing another piece of state based on the result of an async operation.We use Watchers.
+We can use the watch option to trigger a function whenever a reactive property changes.
+
+Deep Watchers:
+watch is shallow by default: the callback will only trigger when the watched property has been assigned a new value - 
+it won't trigger on nested property changes. If you want the callback to fire on all nested mutations, you need to use a deep watcher.
+By giving deep:true.
+
+Eager Watchers:
+watch is lazy by default.if we want to run watcher faster we use eager watchers .By making immediate: true option.
+
+Stopping a Watcher:
+To stop watcher we use unwatch.
+ 
+4.Explain refs?
+While Vue's declarative rendering model abstracts away most of the direct DOM operations.So, where we want to access real DOM  
+we can use the special ref attribute. ref is a special attribute, 
+similar to the key attribute.
+It allows us to obtain a direct reference 
+to a specific DOM element or child component instance after it's mounted.
+you can only access the ref after the component is mounted. If you try to 
+access $refs.input in a template expression, it will be null on the first 
+render. This is because the element doesn't exist until after the first render
+
+5.Explain the Life cycle Methods in Vue?
+
+//Mounting phase
+1)beforeCreate#
+Called when the instance is initialized.
+
+2)created#
+Called after the instance has finished processing all state-related options.
+
+3)beforeMount#
+Called right before the component is to be mounted.
+
+4)mounted#
+Called after the component has been mounted.
+
+//Updating phase
+5)beforeUpdate#
+Called right before the component is about to update its DOM tree due to a reactive state change.
+
+6)updated#
+Called after the component has updated its DOM tree due to a reactive state change.
+
+//Unmounting phase
+7)beforeUnmount#
+Called right before a component instance is to be unmounted.
+
+8)unmounted#
+Called after the component has been unmounted.
+
+======================================================================================================
+Assignment 3
+======================================================================================================
+1. what are Props?
+Props” is a special keyword which stands for properties. It can be registered on a component to pass data from a parent component to one of its children components.
+
+<!-- Conditional Rendering:
+ The directive v-if is used to conditionally
+   render a block. The block will only be rendered if the directive's 
+   expression returns a truthy value. You can use the v-else directive to 
+   indicate an "else block" for v-if-->
+
+How to avoid props drilling?
+The same data is being sent at almost every level due to requirements in the final level.
+In order to avoid props drilling, we use use provide/inject.
+
+Explain provide & inject.
+In order to avoid props drilling, we need to use provide/inject.
+In the root component or in the parent component , we use provide . 
+In the child component in the setup function, we get the value via inject .
+
+
+
+
+
+
+
+
+
+
+
+
+

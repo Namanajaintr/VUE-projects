@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+
+  <body>
+    <div id="dataBindingwithref">
+      <input type="text" placeholder="Enter message" ref="userText" />
+
+      <button @click="setText">set</button>
+
+      <h3>Your message:{{message}}</h3>
+
+      <!-- Focusing an input feild on click of focus button-->
+
+      <input type="text" placeholder="Enter message2" ref="Text" />
+
+      <button @click="setFocus">focus</button>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
