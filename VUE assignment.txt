@@ -18,6 +18,7 @@ The directives offer functionality to HTML applications, and come as either buil
  Readability and Single-File Components.
 
 3. What is Single Page Applicaton?
+navigate throuhgh the appln the page doesnot refresh.
 A single-page application is a web application or website that interacts with the user by 
 dynamically rewriting the current web page with new data from the web server without reloading the webpage
 
@@ -96,6 +97,9 @@ you can only access the ref after the component is mounted. If you try to
 access $refs.input in a template expression, it will be null on the first 
 render. This is because the element doesn't exist until after the first render
 
+can get value from the input field directly
+
+
 5.Explain the Life cycle Methods in Vue?
 
 //Mounting phase
@@ -146,15 +150,76 @@ In order to avoid props drilling, we need to use provide/inject.
 In the root component or in the parent component , we use provide . 
 In the child component in the setup function, we get the value via inject .
 
+======================================================================================================
+Assignment 4
+======================================================================================================
+1. Explain Filters?
+A Filter is a simple JavaScript function which is used to change the output of a data to the browser. Filters in Vue.
+JS don't change the data directly wherever we store them, 
+it only applies formatting to our data. The data remains the same only the output of a data to a browser is changed
+there are two type of filters - local and global
+
+2. Explain Mixins?
+Mixins are a flexible way to distribute reusable functionalities for Vue components.
+A mixin object can contain any component options. When a component uses a mixin, 
+all options in the mixin will be “mixed” into the component’s own options.
+
+3. What is Axios?
+Axios is a promise-based HTTP client library for both browsers and Node.js applications, which means it can be used in both frontend JavaScript applications and backend Node servers.
+We will build a Vue Client with Axios library to make CRUD requests to API :
+Vue Axios GET request: get all Tutorials, get Tutorial by Id, find Tutorial by title
+Vue Axios POST request: create new Tutorial
+Vue Axios PUT request: update an existing Tutorial
+Vue Axios DELETE request: delete a Tutorial, delete all Tutorials
+
+4. Explain Axios instance and Axios Interceptors?
+
+create instance
+You can create a new instance of axios with a custom config.
+
+const instance = axios.create({
+  baseURL: 'https://some-domain.com/api/',
+  timeout: 1000,
+  headers: {'X-Custom-Header': 'foobar'}
+});
 
 
+interceptors
+
+You can intercept requests or responses before they are handled by then or catch.
+
+Axios interceptors are the default configurations that are added automatically to every 
+request or response that a user receives. It is useful to check response status code for 
+every response that is being received.
+
+Interceptors are methods which are triggered before or after the main method. There are two types of interceptors:
+
+request interceptor: - It allows you to write or execute a piece of your code before 
+the request gets sent.
+
+response interceptor: - It allows you to write or execute a piece of your code before 
+response reaches the calling end.
 
 
+5. Difference betweeen Fetch and Axios
+*One base URL for performing all HTTP requests using axios , But in Fetch() while using HTTP methods , for every http req we have to provide the same URL everytime.
+*Using Axios we can create multiple instances
+*To send data, fetch() uses the body property for a post request to send data to the endpoint, while Axios uses the data property
+*The data in fetch() is transformed to a string using the JSON.stringify method
+*Axios automatically transforms the data returned from the server, but with fetch() you have to call the response.json method to parse the data to a JavaScript object. 
+*With Axios, the data response provided by the server can be accessed with in the data object, while for the fetch() method, the final data can be named any variable.
 
+======================================================================================================
+Assignment 5
+======================================================================================================
+1. What is Axios Interceptors?
+You can intercept requests or responses before they are handled by then or catch.
 
+2. Create 5 resuable components?
 
-
-
-
-
-
+3. Explain slots and Named slots?
+*The <slot> element is a slot outlet that indicates where the parent-provided slot content should be rendered.
+*There are times when it's useful to have multiple slot outlets in a single component.
+For these cases, the <slot> element has a special attribute, name, which can be used to assign a unique ID to different slots so you can determine where content should be rendered:
+A <slot> outlet without name implicitly has the name "default".
+To pass a named slot, we need to use a <template> element with the v-slot directive, and then pass the name of the slot as an argument to v-slot:

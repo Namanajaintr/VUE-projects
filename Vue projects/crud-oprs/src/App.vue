@@ -1,17 +1,16 @@
 <template>
-  <register-form />
-  <fetch-users />
+  <div id="app">
+    <products-main />
+  </div>
 </template>
 
 <script>
-import FetchUsers from "./components/fetchUsers.vue";
-import RegisterForm from "./components/RegisterForm.vue";
+import ProductsMain from "./components/Products-main.vue";
 
 export default {
   name: "App",
   components: {
-    RegisterForm,
-    FetchUsers,
+    ProductsMain,
   },
 };
 </script>

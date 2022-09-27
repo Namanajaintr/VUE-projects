@@ -1,17 +1,13 @@
 <template>
-  <register-form />
-  <fetch-users />
+  <user-comp />
 </template>
 
 <script>
-import FetchUsers from "./components/fetchUsers.vue";
-import RegisterForm from "./components/RegisterForm.vue";
-
+import UserComp from "./components/UserComp.vue";
 export default {
   name: "App",
   components: {
-    RegisterForm,
-    FetchUsers,
+    UserComp,
   },
 };
 </script>
