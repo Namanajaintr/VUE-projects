@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h1>Welcome to Dusshera offers</h1>
+
     <b-table-simple responsive>
       <b-thead>
         <b-tr>
@@ -62,20 +64,41 @@ export default {
     return {
       products: [
         {
-          productDescription: "yellow car",
+          productDescription:
+            "Embellish your home or office space with this extremely elegant looking piece of home décor, a cycle shaped flower vase. A perfect gift for all occasions, be it your mother, sister, in-laws, boss or your friends, this cycle vase wherever placed, is sure to beautify the surroundings. The Package Contains: 1 Cycle vase (assorted colors) + Peonies Bunches | Cycle Size with Flower - 21 cm X 19 cm",
           productImageURL:
-            "https://imgd.aeplcdn.com/1056x594/cw/ec/21724/Audi-R8-Right-Front-Three-Quarter-66713.jpg?v=201711021421&q=75&wm=1",
-          productName: "Audi R8",
-          productPrice: 30000000,
+            "https://m.media-amazon.com/images/I/91jKRVXmaML._SX522_.jpg",
+          productName:
+            "TiedRibbons® Cycle Shape Flower Vase with Peonies Bunches",
+          productPrice: 999,
           id: 1,
         },
         {
-          productDescription: "yellow car",
+          productDescription:
+            "Material : Fine Premium Jute with HD Digital Print ,Size : 16 INCH x 16 INCH (40cm x 40cm) ,Good quality Zip closure backed with Premium Upholstery Fabric",
           productImageURL:
-            "https://imgd.aeplcdn.com/1056x594/cw/ec/21724/Audi-R8-Right-Front-Three-Quarter-66713.jpg?v=201711021421&q=75&wm=1",
-          productName: "Audi R8",
-          productPrice: 30000000,
+            "https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2022/JUPITER22/HomeMainPage/Unrec/Explore-more-categories_07.jpg",
+          productName: "Cushion covers",
+          productPrice: 99,
           id: 2,
+        },
+        {
+          productDescription:
+            "The Paradise Set of 2 Tea Light Candle Holder Mosaic Glass Votives Turkish Design Diwali Gift Candle Tealight Votive Holder Handmade Decorative Items for Home (Multicolor 1)",
+          productImageURL:
+            "https://m.media-amazon.com/images/I/411SDvuBa+L._SY300_SX300_.jpg",
+          productName: "Tea Light Candle Holder",
+          productPrice: 349,
+          id: 3,
+        },
+        {
+          productDescription:
+            " Size	1-Pack,Material	Cotton ,Colour	Green,	Double bedsheet with pillow cover + Double bedsheet with pillow cover,Brand	Amazon Brand - Solimo",
+          productImageURL:
+            "https://m.media-amazon.com/images/I/91cZ1DjG1gL._SX522_.jpg",
+          productName: "Cotton Double Bedsheet with 2 Pillow Covers",
+          productPrice: 599,
+          id: 4,
         },
       ],
       showHideAddModal: false,
@@ -127,4 +150,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+h1 {
+  background-color: rgb(49, 228, 168);
+  color: brown;
+  box-shadow: gold;
+  border-radius: 50px;
+  margin-top: 0%;
+}
+</style>
