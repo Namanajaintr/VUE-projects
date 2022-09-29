@@ -34,7 +34,7 @@ instead, all necessary HTML, JavaScript, and CSS code is either retrieved by the
 6. v-on:mouseover
 7. v-on:mouseout
 
-5.Directives are instruction for VueJS to do things in a certain way.
+5.Directives are instruction/directions for VueJS to do things in a certain way.
 v-bind: instead of value attribute we need to bind. (:)
 v-on:Attach an event listener to the element.(@)
 v-html:Read the data in html and Update the element's innerHTML.
@@ -216,6 +216,8 @@ Assignment 5
 You can intercept requests or responses before they are handled by then or catch.
 
 2. Create 5 resuable components?
+Create reusable components in Vue
+We will learn to build a reusable component in Vue, which will be used to reuse it in Create or Edit or anywhere that requires the same code and functionality. Reusing a component or code helps us avoid writing the same code and functionality multiple times.
 
 3. Explain slots and Named slots?
 *The <slot> element is a slot outlet that indicates where the parent-provided slot content should be rendered.
@@ -223,3 +225,12 @@ You can intercept requests or responses before they are handled by then or catch
 For these cases, the <slot> element has a special attribute, name, which can be used to assign a unique ID to different slots so you can determine where content should be rendered:
 A <slot> outlet without name implicitly has the name "default".
 To pass a named slot, we need to use a <template> element with the v-slot directive, and then pass the name of the slot as an argument to v-slot:
+
+======================================================================================================
+Assignment 6
+======================================================================================================
+
+State: The object that holds our app's data.
+Getters: Functions that return back data that resides in the state.
+Mutations: Functions that directly mutate/change the state.
+Actions: Functions that call mutations. Actions can call multiple mutations, other actions, and even other asynchronous operations.
