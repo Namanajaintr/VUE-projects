@@ -13,7 +13,8 @@ The directives offer functionality to HTML applications, and come as either buil
 
  Simplicity.
  Easy to Learn. (learning curve is less steep)
- Virtual DOM Performance and Rendering.
+ Virtual DOM Performance 
+ Server Side Rendering-Vue.js is a framework for building client-side applications ,it is also possible to render the same components into HTML strings on the server, send them directly to the browser, and markup into a fully interactive app on the client.
  Two-Way Binding.
  Readability and Single-File Components.
 
@@ -35,16 +36,20 @@ instead, all necessary HTML, JavaScript, and CSS code is either retrieved by the
 7. v-on:mouseout
 
 5.Directives are instruction/directions for VueJS to do things in a certain way.
-v-bind: instead of value attribute we need to bind. (:)
+v-bind: instead of value attribute we need to bind. Dinamically binds one or more attributes or a component prop to an expression  (:)
 v-on:Attach an event listener to the element.(@)
 v-html:Read the data in html and Update the element's innerHTML.
 v-for:map or loop the array and objects
 v-text:Update the element's text content.
 v-model:Create a two-way binding on a form input element or a component.
 v-once:to preserve initial value and it will be only evaluated once even any changes made it will not update.
+v-slot:(#)
 
 6.Explain Two way data binding?
-The v-model directive makes two-way binding between a form input and app state very easy to implement.
+*The v-model directive makes two-way binding between a form input and app state very easy to implement.
+*data Property is connected to input field(value attr in react)
+*change in input field refelcts data property (Onchng event and target attr in react)
+
 Component data:
 data() {
   return {
@@ -69,22 +74,34 @@ Computed properties enable us to create a property that can be used to modify,
 manipulate, and display data within your components in a readable and efficient manner. 
 We can use computed properties to calculate and display values based on a value or set of values in the data model.
 -Computed property used to optimise the performance.
--other functions will not be executed.
+-other unneccesary functions where there is no props/state change will not be executed.
+-Instead of methods we use this but this only re-evaluate when there is a change in dependency this will be executed.
+ 
 
-3.Explain Watchers.
+3. Explain Watchers.
 There are cases where we need to perform "side effects(Asyncronous code)" in reaction to state changes - for example, mutating the DOM,
-or changing another piece of state based on the result of an async operation.We use Watchers.
+or changing another piece of state based on the result of an async operation we use Watchers.
 We can use the watch option to trigger a function whenever a reactive property changes.
+-when the dependency changes
+-watcher is used to watch when there is a value change and then can perform the action 
+-Watcher's fun name should be same as data property.
+
+-> Diff bn computed properties and Watchers?
+-Computed properties are used to calculate the value of a property based on some other conditions. Watchers, on the other hand, 
+are not primarily used for changing the value of a property; instead, 
+they are used to notify you when the value has changed and let you perform certain actions based on these changes.
 
 Deep Watchers:
 watch is shallow by default: the callback will only trigger when the watched property has been assigned a new value - 
 it won't trigger on nested property changes. If you want the callback to fire on all nested mutations, you need to use a deep watcher.
-By giving deep:true.
+->By giving deep:true.
 
 Eager Watchers:
-watch is lazy by default.if we want to run watcher faster we use eager watchers .By making immediate: true option.
+watch is lazy by default.if we want to run watcher faster we use eager watchers .
+->By giving immediate:true.
 
 Stopping a Watcher:
+Watchers automatically stops when the owner component is unmounted, so in most cases you don't need to worry about stopping the watcher yourself.
 To stop watcher we use unwatch.
  
 4.Explain refs?
@@ -93,14 +110,18 @@ we can use the special ref attribute. ref is a special attribute,
 similar to the key attribute.
 It allows us to obtain a direct reference 
 to a specific DOM element or child component instance after it's mounted.
-you can only access the ref after the component is mounted. If you try to 
-access $refs.input in a template expression, it will be null on the first 
+you can only access the ref after the component is mounted.
+If you try to access $refs.input in a template expression, it will be null on the first 
 render. This is because the element doesn't exist until after the first render
-
-can get value from the input field directly
+-change the onfocus()- programmatically focus an input on component mount
+-can get value from the input field directly
+-triggers animation
+ Access the ref - this.$refs.input.focus()
 
 
 5.Explain the Life cycle Methods in Vue?
+Once the component is removed and the details(logout) has to be manually removed so write clean up activites in unmounting phase
+Once the component is required to be loaded when page is loaded we call api in  mounting phase.
 
 //Mounting phase
 1)beforeCreate#
@@ -133,31 +154,54 @@ Called after the component has been unmounted.
 Assignment 3
 ======================================================================================================
 1. what are Props?
-Props” is a special keyword which stands for properties. It can be registered on a component to pass data from a parent component to one of its children components.
+Props is a special keyword which stands for properties. 
+It can be registered on a component to pass data from a parent component to one of its children components.
 
-<!-- Conditional Rendering:
- The directive v-if is used to conditionally
-   render a block. The block will only be rendered if the directive's 
-   expression returns a truthy value. You can use the v-else directive to 
-   indicate an "else block" for v-if-->
+2. Conditional Rendering?
+The directive v-if is used to conditionally render a block. 
+The block will only be rendered if the directive's expression returns a truthy value. 
+You can use the v-else directive to indicate an "else block" for v-if
+(both has to be adjacent or else both stmnts will be displayed )
 
-How to avoid props drilling?
+2. How to avoid props drilling?
 The same data is being sent at almost every level due to requirements in the final level.
 In order to avoid props drilling, we use use provide/inject.
 
-Explain provide & inject.
+3. Explain provide & inject.
 In order to avoid props drilling, we need to use provide/inject.
 In the root component or in the parent component , we use provide . 
-In the child component in the setup function, we get the value via inject .
+In the child component in the setup function, we get the value via inject.
 
+4. v-for
+loops array of objects
+loops objects
+not to use v-for with v-if with the same element.(loops and then checks condition -not able to access)
+key attribute should be provided in v-for 
 ======================================================================================================
 Assignment 4
 ======================================================================================================
 1. Explain Filters?
-A Filter is a simple JavaScript function which is used to change the output of a data to the browser. Filters in Vue.
-JS don't change the data directly wherever we store them, 
-it only applies formatting to our data. The data remains the same only the output of a data to a browser is changed
-there are two type of filters - local and global
+A Filter is a simple JavaScript function which is used  to change the output of a data to the browser. 
+Filters in Vue.JS don’t change the data directly wherever we store them, it only applies formatting to our data. 
+The data remains the same only the output of a data to a browser is changed.
+Vue.JS doesn’t give these filters by default, so we have to make these filters. 
+With Vue.JS , we can use filters in two different ways i.e. Global filter and Local filter. 
+Global filter provides access all the components while Local filter only allows us to use our filter inside the component it was defined.
+global filters - have to be written in the main.js so that can be accessed thro out the app. - app.config.globalProperties.$filters
+local filters - we have to write local filters in computed properties. - toLocaleUpperCase()
+
+Scoped attribute-
+A <style> tag has the scoped attribute in it, its CSS will apply to elements of the current component only.
+With scoped, the parent component's styles will not leak into child components.
+
+Deep Selectors#
+If you want a selector in scoped styles to be "deep", i.e. affecting child components, you can use the :deep() pseudo-class:
+
+Slotted Selectors#
+By default, scoped styles do not affect contents rendered by <slot/>, as they are considered to be owned by the parent component passing them in. To explicitly target slot content, use the :slotted pseudo-class:
+
+Global Selectors#
+If you want just one rule to apply globally, you can use the :global pseudo-class rather than creating another <style>.
 
 2. Explain Mixins?
 Mixins are a flexible way to distribute reusable functionalities for Vue components.
@@ -212,8 +256,9 @@ response reaches the calling end.
 ======================================================================================================
 Assignment 5
 ======================================================================================================
-1. What is Axios Interceptors?
-You can intercept requests or responses before they are handled by then or catch.
+1. What are Dynamic Components?
+Vue.js Dynamic Components allows the users to switch over the components without updating the route of the Vue.js application itself. 
+It also keeps the data in its current state. It is useful when the user is in a tabbed interface.
 
 2. Create 5 resuable components?
 Create reusable components in Vue
@@ -226,11 +271,197 @@ For these cases, the <slot> element has a special attribute, name, which can be 
 A <slot> outlet without name implicitly has the name "default".
 To pass a named slot, we need to use a <template> element with the v-slot directive, and then pass the name of the slot as an argument to v-slot:
 
+Emits are not mandotaory for better readability
+
 ======================================================================================================
 Assignment 6
 ======================================================================================================
+What is Vuex:
+Vuex is a state management pattern + library for Vue.js applications. 
+It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion.
 
+y vuex?
+Vuex helps us deal with shared state management with the cost of more concepts and boilerplate.
+
+if you are building a medium-to-large-scale SPA, chances are you have run into situations that make you think about how to better handle state outside of your Vue components, and Vuex helps out
+
+Flow of Redux:
 State: The object that holds our app's data.
 Getters: Functions that return back data that resides in the state.
 Mutations: Functions that directly mutate/change the state.
 Actions: Functions that call mutations. Actions can call multiple mutations, other actions, and even other asynchronous operations.
+
+why mutations are to be syncronous?
+Now imagine we are debugging the app and looking at the devtool's mutation logs. 
+For every mutation logged, the devtool will need to capture a "before" and "after" snapshots of the state. 
+However, the asynchronous callback inside the example mutation above makes that impossible: 
+the callback is not called yet when the mutation is committed, and there's no way for the devtool to know when the callback will actually be called - 
+any state mutation performed in the callback is essentially un-trackable!
+
+Diff bn actions and mutations?
+Actions are similar to mutations, the differences being that:
+
+actions commit mutations . In mutations we mutates the state, 
+Actions can contain arbitrary asynchronous operations . mutations contains synchronous operations.
+Call Action-$store.dispatch() . call Mutation-context.commit()
+Actions takes context and payload as args . Mutations takes state and payload as args 
+
+what is context in actions?
+Action handlers receive a context object which exposes the same set of methods/properties on the store instance, 
+so you can call context.commit to commit a mutation, or access the state and getters via context.state and context.getters
+
+
+======================================================================================================
+Assignment 7
+======================================================================================================
+1. Explain Vue Router?
+Vue Router is the official library for page navigation in Vue applications. Route allow us to create SPA.
+
+router-link#
+instead of using regular <a> tags, we use a custom component router-link to create links. This allows Vue Router to change the URL without reloading the page, handle URL generation.
+
+router-view#
+router-view will display the component that corresponds to the url. 
+
+2.How to navigate programmatically
+Aside from using <router-link> to create anchor tags for declarative navigation, 
+we can do this programmatically using the router's instance methods.
+Inside of a Vue instance, you have access to the router instance as $router. You can therefore call this.$router.push("\").
+
+3.What is storybook?how storybook is helpful in vue.js
+Run a single component in Isolation rather than running whole application
+Storybook is a tool for UI development. 
+It makes development faster and easier by isolating components. 
+This allows you to work on one component at a time.
+You can develop entire UIs without needing to start up a complex dev stack, force certain data into your database, or navigate around your application.
+
+4.List few features introduced in vue 3
+1.Composition API
+2.Full TypeScript support
+3.Portals,Teleport
+4.Fragments
+5.Suspense
+6.Global Mounting/Configuration API change
+7.Multiple v-models
+8.Custom Directive API
+
+5.Differences vue2 and vue3
+*Creating App
+Firstly, looking at the way to create an app, you will see the difference in syntax. Not only syntax but also essence is changed.
+->Vue2:
+import Vue from "vue";
+import App from "./App.vue";
+Vue.config.productionTip = false;
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");
+
+->Vue3:
+import { createApp } from "vue";
+import App from "./App.vue";
+import "./index.css";
+createApp(App).mount("#app");
+
+*Multiple Root
+->In Vue 2, you implement only one single root element in the template.
+->but Vue 3 no longer requires a single root element/parent element (<div></div>) for components that means it provides developer multiple root in the template.
+
+*Lifecycle hooks
+->Vue 2 lifecycle methods:
+beforeCreate()
+created()
+beforeMount()
+mounted()
+beforeUpdate()
+updated()
+beforeDestroy()
+
+->There are some new hooks in Vue 3 lifecycle:
+beforeDestroy() become beforeUnmount()
+destroyed() become unmounted()
+
+*
+->Vue 2 has no portal and no teleport
+->Vue 3 supports portals,teleport,composition API
+
+*Performance improvements
+The Vue 3.0 focus on performance improvements:
+a smaller size of the core
+tree-shaking
+optimized slots generation
+hoisting and inlining
+
+6.List out best 20 practices in vue
+https://medium.com/js-dojo/20-useful-vue-js-components-2022-3bf9fbe5b556
+
+7.What is Nuxt.js? What are the benifits of using it
+The Intuitive Vue Framework.An open source framework making web development simple and powerful.
+
+Benifits:
+1. Nuxt can create universal apps without the hassle
+2. This module can help render Vue apps and get every benefit of a universal app without a server
+3. Nuxt can get automatic code-splitting (pre-rendered pages)
+4. Setup via the command line with the starter template when using this module
+5. Easily set up transitions between your routes(Easy Routing)
+6. With Nuxt, you can easily write Single File Components
+7. Get set up with an auto-updating server for easy development
+8. Have access to everything in the Nuxt.js community
+components auto import 
+Better search engine optimization
+
+
+======================================================================================================
+Assignment 9
+======================================================================================================
+
+1)Explain Teleport(2 examples).
+==>*<Teleport> is a built-in component that allows us to "teleport" a part of a component's template
+  into a DOM node that exists outside the DOM hierarchy of that component.
+
+*for example if we have a modal inside App.vue but we want to put this modal inside the body,then we use
+
+2)Explain routing in NUXT.
+==>Nuxt automatically generates the vue-router configuration for you, based on your provided Vue files inside the pages directory.
+ That means *
+ *you never have to write a router config again! * Nuxt also gives you automatic code-splitting for all your routes.
+
+*For all links to pages within your site, use <NuxtLink>. If you have links to other websites you should use the <a> tag. See below for an example:
+ <template>
+  <NuxtLink to="/">Home page</NuxtLink>
+</template>
+
+3)Explain transition in vue.
+==>
+<Transition> for applying animations when an element or component is entering and leaving the DOM.
+The enter or leave can be triggered by one of the following:
+
+Conditional rendering via v-if
+Conditional display via v-show
+Dynamic components toggling via the <component> special element.
+
+4)How to create protected routes with examples?
+==>
+
+5)What is dependency injection?
+==>Increases coupling — The goal of dependency injection is to decrease coupling between components,
+ but using provide / inject to pass data actually increases the coupling between components.
+
+6)Explain 5 ways to maintain clean and readable code.
+==>
+*Use Mixins
+The main way to create reusable methods, data attributes, computed properties, and more in Vue is to create mixins.
+
+*Don’t Be Cheap With Components:The giga component was hard to read and maintain and would only become longer over time if I didn’t refactor
+
+*Validate Your Props
+Validating your props is an important part of making your Vue application maintainable.
+
+*Interact With APIs Using Services
+Vue doesn’t have services like Angular, which allows you to create services to interact with APIs and build common application logic.
+
+*Follow the Style Guide
+It’d be beyond the scope of this article to go deep into the Vue style guide. In general, 
+it’s important to learn how the frameworks you’re using are designed and how they expect you to work with them.
+
+7)What is WEBPACK?
+==>Webpack is a module bundler that takes your development assets (like Vue components and plain Javascript files) and combines them into so called bundles.

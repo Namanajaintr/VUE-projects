@@ -16,6 +16,21 @@
       <p v-if="show">Hey its so AMAZING...</p>
     </Transition>
   </div>
+
+  <div>
+    <base-card :show="show">
+      <h1>Happy Dusshera 🎎</h1>
+      <div class="box">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMUDF99QFyFb68s2hYZOGxtB_zZHiltbGQ9Gccg7AL5yUstRYI8fI4aJ_15lVqZx8O6XM&usqp=CAU"
+        />
+      </div>
+      <button @click="show = !show">close me</button>
+    </base-card>
+  </div>
+  <div>
+    <button @click="show = !show">open me</button>
+  </div>
 </template>
 
 <script>
@@ -38,6 +53,7 @@ export default {
 .animateBlockLeft {
   /* transform: translateX(-300px); */
   animation: slide-fade 0.5s ease-in-out forwards;
+  animation-direction: alternate-reverse;
 }
 
 .block {

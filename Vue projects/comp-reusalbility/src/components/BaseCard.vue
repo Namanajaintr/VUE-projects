@@ -4,6 +4,8 @@
     <p>{{ rating }} {{ review }}</p>
     <h3>Rs:{{ mobilePrice }}</h3>
   </div>
+  <div></div>
+  <ul></ul>
 </template>
 
 <script>

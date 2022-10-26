@@ -25,7 +25,7 @@ export default {
   methods: {
     functionToBePassed() {
       console.log("functionToBePassed executed");
-      
+      // let a = a + 5;
     },
   },
 };
